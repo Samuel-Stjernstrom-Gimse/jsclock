@@ -250,16 +250,13 @@ const switchLetter = () => {
 setInterval(switchLetter, 40)
 setInterval(masterLoop, 1000)
 
-// 1: 2-8-  0 1 (2-7) 8 9 (10-15) 16 {17 18} 19 (20-25) 26 27 (28-29) 30 {31 32}
 
 letterArray.forEach((col, xX) => {
     col.forEach((letter, yY) => {
         if (yY === 0) {
-            // Move the last element to the first position
             document.getElementById(`${xX}-${yY}`).textContent = letterArray[xX][col.length - 1];
             letterArray[xX].unshift(letterArray[xX].pop());
         } else {
-            // Shift every other element up by one
             document.getElementById(`${xX}-${yY}`).textContent = letterArray[xX][yY];
         }
     });
